@@ -1,0 +1,14 @@
+D:\csharp\project\ConsoleForStudy\ConsoleForStudy\bin\Debug\net9.0\ConsoleForStudy.exe
+D:\csharp\project\ConsoleForStudy\ConsoleForStudy\bin\Debug\net9.0\ConsoleForStudy.deps.json
+D:\csharp\project\ConsoleForStudy\ConsoleForStudy\bin\Debug\net9.0\ConsoleForStudy.runtimeconfig.json
+D:\csharp\project\ConsoleForStudy\ConsoleForStudy\bin\Debug\net9.0\ConsoleForStudy.dll
+D:\csharp\project\ConsoleForStudy\ConsoleForStudy\bin\Debug\net9.0\ConsoleForStudy.pdb
+D:\csharp\project\ConsoleForStudy\ConsoleForStudy\obj\Debug\net9.0\ConsoleForStudy.GeneratedMSBuildEditorConfig.editorconfig
+D:\csharp\project\ConsoleForStudy\ConsoleForStudy\obj\Debug\net9.0\ConsoleForStudy.AssemblyInfoInputs.cache
+D:\csharp\project\ConsoleForStudy\ConsoleForStudy\obj\Debug\net9.0\ConsoleForStudy.AssemblyInfo.cs
+D:\csharp\project\ConsoleForStudy\ConsoleForStudy\obj\Debug\net9.0\ConsoleForStudy.csproj.CoreCompileInputs.cache
+D:\csharp\project\ConsoleForStudy\ConsoleForStudy\obj\Debug\net9.0\ConsoleForStudy.dll
+D:\csharp\project\ConsoleForStudy\ConsoleForStudy\obj\Debug\net9.0\refint\ConsoleForStudy.dll
+D:\csharp\project\ConsoleForStudy\ConsoleForStudy\obj\Debug\net9.0\ConsoleForStudy.pdb
+D:\csharp\project\ConsoleForStudy\ConsoleForStudy\obj\Debug\net9.0\ConsoleForStudy.genruntimeconfig.cache
+D:\csharp\project\ConsoleForStudy\ConsoleForStudy\obj\Debug\net9.0\ref\ConsoleForStudy.dll

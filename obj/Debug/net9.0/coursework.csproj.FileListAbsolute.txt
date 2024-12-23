@@ -1,0 +1,14 @@
+D:\csharp\project\ConsoleForStudy\coursework\bin\Debug\net9.0\coursework.exe
+D:\csharp\project\ConsoleForStudy\coursework\bin\Debug\net9.0\coursework.deps.json
+D:\csharp\project\ConsoleForStudy\coursework\bin\Debug\net9.0\coursework.runtimeconfig.json
+D:\csharp\project\ConsoleForStudy\coursework\bin\Debug\net9.0\coursework.dll
+D:\csharp\project\ConsoleForStudy\coursework\bin\Debug\net9.0\coursework.pdb
+D:\csharp\project\ConsoleForStudy\coursework\obj\Debug\net9.0\coursework.GeneratedMSBuildEditorConfig.editorconfig
+D:\csharp\project\ConsoleForStudy\coursework\obj\Debug\net9.0\coursework.AssemblyInfoInputs.cache
+D:\csharp\project\ConsoleForStudy\coursework\obj\Debug\net9.0\coursework.AssemblyInfo.cs
+D:\csharp\project\ConsoleForStudy\coursework\obj\Debug\net9.0\coursework.csproj.CoreCompileInputs.cache
+D:\csharp\project\ConsoleForStudy\coursework\obj\Debug\net9.0\coursework.dll
+D:\csharp\project\ConsoleForStudy\coursework\obj\Debug\net9.0\refint\coursework.dll
+D:\csharp\project\ConsoleForStudy\coursework\obj\Debug\net9.0\coursework.pdb
+D:\csharp\project\ConsoleForStudy\coursework\obj\Debug\net9.0\coursework.genruntimeconfig.cache
+D:\csharp\project\ConsoleForStudy\coursework\obj\Debug\net9.0\ref\coursework.dll
