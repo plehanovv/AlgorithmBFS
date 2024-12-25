@@ -49,7 +49,7 @@ namespace coursework
                 if (saveChoice?.ToLower() == "y")
                 {
                     Console.WriteLine("Введите название файла (например, path.txt): ");
-                    string fileName = Console.ReadLine(); // Получаем имя файла от пользователя
+                    string fileName = Console.ReadLine();   // Получаем имя файла от пользователя
 
                     // Получаем путь к корневой папке проекта
                     string projectRoot = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent
