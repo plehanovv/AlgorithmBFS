@@ -43,16 +43,20 @@ namespace coursework
                 {
                     Console.WriteLine($"({step.X}, {step.Y})");
                 }
-                
+
                 Console.WriteLine("Хотите сохранить путь в файл? (y/n)");
                 var saveChoice = Console.ReadLine();
                 if (saveChoice?.ToLower() == "y")
                 {
                     Console.WriteLine("Введите название файла (например, path.txt): ");
-                    string fileName = Console.ReadLine();  // Получаем имя файла от пользователя
+                    string fileName = Console.ReadLine(); // Получаем имя файла от пользователя
 
-                    // Путь до папки WayResults
-                    string directoryPath = ".\\WayResults";
+                    // Получаем путь к корневой папке проекта
+                    string projectRoot = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent
+                        .FullName;
+
+                    // Путь до папки WayResults в корне проекта
+                    string directoryPath = Path.Combine(projectRoot, "WayResults");
 
                     // Проверяем, существует ли папка, если нет, создаем её
                     if (!Directory.Exists(directoryPath))
@@ -62,7 +66,8 @@ namespace coursework
 
                     // Добавляем к имени файла метку времени для уникальности
                     string timeStamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
-                    string uniqueFileName = $"{Path.GetFileNameWithoutExtension(fileName)}_{timeStamp}{Path.GetExtension(fileName)}";
+                    string uniqueFileName =
+                        $"{Path.GetFileNameWithoutExtension(fileName)}_{timeStamp}{Path.GetExtension(fileName)}";
 
                     // Формируем полный путь с уникальным именем файла
                     string filePath = Path.Combine(directoryPath, uniqueFileName);
@@ -72,7 +77,6 @@ namespace coursework
 
                     Console.WriteLine($"Путь сохранён в файл: {uniqueFileName}");
                 }
-
             }
             else
             {
@@ -129,7 +133,8 @@ namespace coursework
             return new InputData(graph, start, end);
         }
 
-        private (int[,] labyrinth, (int X, int Y) start, (int X, int Y) end) LoadLabyrinthAndPointsFromFile(string filePath)
+        private (int[,] labyrinth, (int X, int Y) start, (int X, int Y) end) LoadLabyrinthAndPointsFromFile(
+            string filePath)
         {
             // Проверяем, существует ли файл
             if (!File.Exists(filePath))
@@ -185,6 +190,7 @@ namespace coursework
                 {
                     Console.Write(labyrinth[i, j] + " ");
                 }
+
                 Console.WriteLine();
             }
         }

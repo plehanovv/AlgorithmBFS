@@ -12,3 +12,18 @@ D:\csharp\project\ConsoleForStudy\coursework\obj\Debug\net9.0\refint\coursework.
 D:\csharp\project\ConsoleForStudy\coursework\obj\Debug\net9.0\coursework.pdb
 D:\csharp\project\ConsoleForStudy\coursework\obj\Debug\net9.0\coursework.genruntimeconfig.cache
 D:\csharp\project\ConsoleForStudy\coursework\obj\Debug\net9.0\ref\coursework.dll
+D:\downloads yarik\sharp\AlgorithmBFS\bin\Debug\net9.0\coursework.exe
+D:\downloads yarik\sharp\AlgorithmBFS\bin\Debug\net9.0\coursework.deps.json
+D:\downloads yarik\sharp\AlgorithmBFS\bin\Debug\net9.0\coursework.runtimeconfig.json
+D:\downloads yarik\sharp\AlgorithmBFS\bin\Debug\net9.0\coursework.dll
+D:\downloads yarik\sharp\AlgorithmBFS\bin\Debug\net9.0\coursework.pdb
+D:\downloads yarik\sharp\AlgorithmBFS\obj\Debug\net9.0\coursework.GeneratedMSBuildEditorConfig.editorconfig
+D:\downloads yarik\sharp\AlgorithmBFS\obj\Debug\net9.0\coursework.AssemblyInfoInputs.cache
+D:\downloads yarik\sharp\AlgorithmBFS\obj\Debug\net9.0\coursework.AssemblyInfo.cs
+D:\downloads yarik\sharp\AlgorithmBFS\obj\Debug\net9.0\coursework.csproj.CoreCompileInputs.cache
+D:\downloads yarik\sharp\AlgorithmBFS\obj\Debug\net9.0\coursework.sourcelink.json
+D:\downloads yarik\sharp\AlgorithmBFS\obj\Debug\net9.0\coursework.dll
+D:\downloads yarik\sharp\AlgorithmBFS\obj\Debug\net9.0\refint\coursework.dll
+D:\downloads yarik\sharp\AlgorithmBFS\obj\Debug\net9.0\coursework.pdb
+D:\downloads yarik\sharp\AlgorithmBFS\obj\Debug\net9.0\coursework.genruntimeconfig.cache
+D:\downloads yarik\sharp\AlgorithmBFS\obj\Debug\net9.0\ref\coursework.dll

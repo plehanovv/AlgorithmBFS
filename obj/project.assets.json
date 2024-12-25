@@ -8,24 +8,32 @@
     "net9.0": []
   },
   "packageFolders": {
-    "C:\\Users\\pleha\\.nuget\\packages\\": {}
+    "C:\\Users\\pleha_saat0b5\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\csharp\\project\\ConsoleForStudy\\coursework\\coursework.csproj",
+      "projectUniqueName": "D:\\downloads yarik\\sharp\\AlgorithmBFS\\coursework.csproj",
       "projectName": "coursework",
-      "projectPath": "D:\\csharp\\project\\ConsoleForStudy\\coursework\\coursework.csproj",
-      "packagesPath": "C:\\Users\\pleha\\.nuget\\packages\\",
-      "outputPath": "D:\\csharp\\project\\ConsoleForStudy\\coursework\\obj\\",
+      "projectPath": "D:\\downloads yarik\\sharp\\AlgorithmBFS\\coursework.csproj",
+      "packagesPath": "C:\\Users\\pleha_saat0b5\\.nuget\\packages\\",
+      "outputPath": "D:\\downloads yarik\\sharp\\AlgorithmBFS\\obj\\",
       "projectStyle": "PackageReference",
+      "UsingMicrosoftNETSdk": false,
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\pleha\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\pleha_saat0b5\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -43,8 +51,7 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.100"
+      }
     },
     "frameworks": {
       "net9.0": {
