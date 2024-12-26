@@ -10,10 +10,28 @@ namespace coursework
         // Метод для отображения главного меню программы.
         public void ShowMenu()
         {
-            Console.WriteLine("Выберите один из вариантов:");
-            Console.WriteLine("1. Создать лабиринт вручную.");
-            Console.WriteLine("2. Загрузить лабиринт из файла.");
-            int choice = int.Parse(Console.ReadLine());
+            int choice = 0;
+            bool validInput = false;
+
+            // Запрашиваем ввод до тех пор, пока пользователь не введет корректный выбор.
+            while (!validInput)
+            {
+                Console.WriteLine("Выберите один из вариантов:");
+                Console.WriteLine("1. Создать лабиринт вручную.");
+                Console.WriteLine("2. Загрузить лабиринт из файла.");
+                
+                string input = Console.ReadLine();
+                
+                // Проверка на корректный выбор.
+                if (int.TryParse(input, out choice) && (choice == 1 || choice == 2))
+                {
+                    validInput = true; // Выход из цикла, если введен правильный выбор.
+                }
+                else
+                {
+                    Console.WriteLine("Неверный выбор. Пожалуйста, введите 1 или 2.");
+                }
+            }
 
             InputData inputData;
 
@@ -22,14 +40,9 @@ namespace coursework
             {
                 inputData = CreateLabyrinthManually();
             }
-            else if (choice == 2)
-            {
-                inputData = LoadLabyrinthFromFile();
-            }
             else
             {
-                Console.WriteLine("Неверный выбор. Попробуйте снова.");
-                return;
+                inputData = LoadLabyrinthFromFile();
             }
 
             var decision = new Decision(inputData);
@@ -88,42 +101,116 @@ namespace coursework
             }
 
             Console.WriteLine($"Время, затраченное на поиск пути: {stopwatch.ElapsedMilliseconds} мс");
+            Console.ReadLine();
         }
 
         // Метод для ручного создания лабиринта.
         private InputData CreateLabyrinthManually()
         {
-            Console.WriteLine("Введите количество строк лабиринта (M): ");
-            int rows = int.Parse(Console.ReadLine());
+            int rows = 0, cols = 0;
+            bool validInput = false;
 
-            Console.WriteLine("Введите количество столбцов лабиринта (N): ");
-            int cols = int.Parse(Console.ReadLine());
+            // Запрашиваем количество строк и столбцов, пока не введены корректные значения.
+            while (!validInput)
+            {
+                Console.WriteLine("Введите количество строк лабиринта (M): ");
+                string input = Console.ReadLine();
+                if (int.TryParse(input, out rows) && rows > 0)
+                {
+                    validInput = true;
+                }
+                else
+                {
+                    Console.WriteLine("Пожалуйста, введите положительное целое число.");
+                }
+            }
+
+            validInput = false;
+
+            while (!validInput)
+            {
+                Console.WriteLine("Введите количество столбцов лабиринта (N): ");
+                string input = Console.ReadLine();
+                if (int.TryParse(input, out cols) && cols > 0)
+                {
+                    validInput = true;
+                }
+                else
+                {
+                    Console.WriteLine("Пожалуйста, введите положительное целое число.");
+                }
+            }
 
             var labyrinth = new int[rows, cols];
 
             // Ввод лабиринта построчно.
-            Console.WriteLine("Введите лабиринт построчно (0 - проходимо, 1 - непроходимо):");
+            Console.WriteLine("Введите лабиринт построчно (0 - проходимо, 1 - непроходимо, в формате: 0,1,0):");
             for (int i = 0; i < rows; i++)
             {
                 Console.WriteLine($"Строка {i + 1}:");
-                var values = Console.ReadLine().Split(',');
+                string line = Console.ReadLine();
+                var values = line.Split(',');
+
                 for (int j = 0; j < cols; j++)
                 {
-                    labyrinth[i, j] = int.Parse(values[j]);
+                    bool isValidValue = false;
+
+                    // Попробуем парсить значение для каждой ячейки.
+                    while (!isValidValue)
+                    {
+                        if (values.Length <= j)
+                        {
+                            Console.WriteLine($"Ошибка: для строки {i + 1} недостает значений. Пожалуйста, введите все элементы.");
+                            line = Console.ReadLine();  // Повторный ввод строки.
+                            values = line.Split(',');
+                        }
+                        else if (!int.TryParse(values[j], out labyrinth[i, j]) || (labyrinth[i, j] != 0 && labyrinth[i, j] != 1))
+                        {
+                            Console.WriteLine("Ошибка: введено неправильное значение. Введите 0 или 1.");
+                            line = Console.ReadLine();  // Повторный ввод строки.
+                            values = line.Split(',');
+                        }
+                        else
+                        {
+                            isValidValue = true; // Если значение корректно, выходим из цикла.
+                        }
+                    }
                 }
             }
 
             DisplayLabyrinth(labyrinth);
 
             // Ввод начальной и конечной точек.
-            Console.WriteLine("Введите координаты начальной точки (x y): ");
-            var start = ParseCoordinates(Console.ReadLine());
-
-            Console.WriteLine("Введите координаты конечной точки (x y): ");
-            var end = ParseCoordinates(Console.ReadLine());
+            var start = GetValidCoordinates("начальной");
+            var end = GetValidCoordinates("конечной");
 
             var graph = new Graph(labyrinth);
             return new InputData(graph, start, end);
+        }
+
+        // Метод для ввода и проверки координат.
+        private (int X, int Y) GetValidCoordinates(string pointType)
+        {
+            (int X, int Y) coordinates = (-1, -1);
+            bool validInput = false;
+
+            while (!validInput)
+            {
+                Console.WriteLine($"Введите координаты {pointType} точки (в формате: x y): ");
+                string input = Console.ReadLine();
+                var parts = input.Split(' ');
+
+                if (parts.Length == 2 && int.TryParse(parts[0], out coordinates.X) && int.TryParse(parts[1], out coordinates.Y))
+                {
+                    validInput = true;
+                }
+                else
+                {
+                    Console.WriteLine("Неверный формат координат. Пожалуйста, введите два целых числа, разделенных пробелом.");
+                }
+            }
+
+            return coordinates;
         }
 
         // Метод для загрузки лабиринта из файла.
@@ -203,13 +290,6 @@ namespace coursework
 
                 Console.WriteLine();
             }
-        }
-
-        // Метод для парсинга координат из строки.
-        private (int X, int Y) ParseCoordinates(string input)
-        {
-            var parts = input.Split(' ');
-            return (int.Parse(parts[0]), int.Parse(parts[1]));
         }
     }
 }
