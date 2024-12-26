@@ -7,6 +7,7 @@ namespace coursework
 {
     class Menu
     {
+        // Метод для отображения главного меню программы.
         public void ShowMenu()
         {
             Console.WriteLine("Выберите один из вариантов:");
@@ -15,6 +16,8 @@ namespace coursework
             int choice = int.Parse(Console.ReadLine());
 
             InputData inputData;
+
+            // Выбор варианта: создание лабиринта вручную или загрузка из файла.
             if (choice == 1)
             {
                 inputData = CreateLabyrinthManually();
@@ -31,11 +34,12 @@ namespace coursework
 
             var decision = new Decision(inputData);
 
-            // Измеряем время выполнения алгоритма
+            // Замер времени выполнения алгоритма.
             var stopwatch = Stopwatch.StartNew();
             decision.RunAlgorithm();
             stopwatch.Stop();
 
+            // Обработка результатов работы алгоритма.
             if (decision.OutData.Way != null)
             {
                 Console.WriteLine("Путь найден:");
@@ -49,30 +53,30 @@ namespace coursework
                 if (saveChoice?.ToLower() == "y")
                 {
                     Console.WriteLine("Введите название файла (например, path.txt): ");
-                    string fileName = Console.ReadLine();   // Получаем имя файла от пользователя
+                    string fileName = Console.ReadLine(); // Получаем имя файла от пользователя.
 
-                    // Получаем путь к корневой папке проекта
+                    // Получаем путь к корневой папке проекта.
                     string projectRoot = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent
                         .FullName;
 
-                    // Путь до папки WayResults в корне проекта
+                    // Путь до папки WayResults в корне проекта.
                     string directoryPath = Path.Combine(projectRoot, "WayResults");
 
-                    // Проверяем, существует ли папка, если нет, создаем её
+                    // Создаем папку, если она не существует.
                     if (!Directory.Exists(directoryPath))
                     {
                         Directory.CreateDirectory(directoryPath);
                     }
 
-                    // Добавляем к имени файла метку времени для уникальности
+                    // Генерируем уникальное имя файла с меткой времени.
                     string timeStamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
                     string uniqueFileName =
                         $"{Path.GetFileNameWithoutExtension(fileName)}_{timeStamp}{Path.GetExtension(fileName)}";
 
-                    // Формируем полный путь с уникальным именем файла
+                    // Полный путь до файла.
                     string filePath = Path.Combine(directoryPath, uniqueFileName);
 
-                    // Сохраняем путь в указанный файл
+                    // Сохраняем путь в файл.
                     decision.OutData.SavePathToFile(filePath);
 
                     Console.WriteLine($"Путь сохранён в файл: {uniqueFileName}");
@@ -86,6 +90,7 @@ namespace coursework
             Console.WriteLine($"Время, затраченное на поиск пути: {stopwatch.ElapsedMilliseconds} мс");
         }
 
+        // Метод для ручного создания лабиринта.
         private InputData CreateLabyrinthManually()
         {
             Console.WriteLine("Введите количество строк лабиринта (M): ");
@@ -96,6 +101,7 @@ namespace coursework
 
             var labyrinth = new int[rows, cols];
 
+            // Ввод лабиринта построчно.
             Console.WriteLine("Введите лабиринт построчно (0 - проходимо, 1 - непроходимо):");
             for (int i = 0; i < rows; i++)
             {
@@ -109,6 +115,7 @@ namespace coursework
 
             DisplayLabyrinth(labyrinth);
 
+            // Ввод начальной и конечной точек.
             Console.WriteLine("Введите координаты начальной точки (x y): ");
             var start = ParseCoordinates(Console.ReadLine());
 
@@ -119,12 +126,13 @@ namespace coursework
             return new InputData(graph, start, end);
         }
 
+        // Метод для загрузки лабиринта из файла.
         private InputData LoadLabyrinthFromFile()
         {
             Console.WriteLine("Введите путь к файлу с лабиринтом (например, labyrinth.txt): ");
             string filePath = Console.ReadLine();
 
-            // Загрузим данные из файла
+            // Загружаем данные из файла.
             var (labyrinth, start, end) = LoadLabyrinthAndPointsFromFile(filePath);
 
             DisplayLabyrinth(labyrinth);
@@ -133,10 +141,11 @@ namespace coursework
             return new InputData(graph, start, end);
         }
 
+        // Метод для загрузки лабиринта и точек из файла.
         private (int[,] labyrinth, (int X, int Y) start, (int X, int Y) end) LoadLabyrinthAndPointsFromFile(
             string filePath)
         {
-            // Проверяем, существует ли файл
+            // Проверяем существование файла.
             if (!File.Exists(filePath))
             {
                 Console.WriteLine("Файл не найден: " + filePath);
@@ -147,7 +156,7 @@ namespace coursework
             {
                 string[] lines = File.ReadAllLines(filePath);
 
-                // Предполагается, что последние две строки содержат start и end
+                // Последние две строки файла содержат начальную и конечную точки.
                 string startLine = lines[^2];
                 string endLine = lines[^1];
 
@@ -157,7 +166,7 @@ namespace coursework
                 var start = (int.Parse(startParts[0]), int.Parse(startParts[1]));
                 var end = (int.Parse(endParts[0]), int.Parse(endParts[1]));
 
-                // Лабиринт - все строки до start и end
+                // Загружаем лабиринт из остальных строк.
                 int rows = lines.Length - 2;
                 int cols = lines[0].Split(',').Length;
 
@@ -181,6 +190,7 @@ namespace coursework
             }
         }
 
+        // Метод для отображения лабиринта в консоли.
         private void DisplayLabyrinth(int[,] labyrinth)
         {
             Console.WriteLine("Текущий лабиринт:");
@@ -195,6 +205,7 @@ namespace coursework
             }
         }
 
+        // Метод для парсинга координат из строки.
         private (int X, int Y) ParseCoordinates(string input)
         {
             var parts = input.Split(' ');
