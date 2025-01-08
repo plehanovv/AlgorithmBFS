@@ -1,12 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DWgwlX2Y+ZE=",
+  "dgSpecHash": "ptGupaBg00Q=",
   "success": true,
   "projectFilePath": "D:\\downloads yarik\\sharp\\AlgorithmBFS\\coursework.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\pleha_saat0b5\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\9.0.0\\microsoft.netcore.app.runtime.win-x64.9.0.0.nupkg.sha512",
-    "C:\\Users\\pleha_saat0b5\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\9.0.0\\microsoft.windowsdesktop.app.runtime.win-x64.9.0.0.nupkg.sha512",
-    "C:\\Users\\pleha_saat0b5\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\9.0.0\\microsoft.aspnetcore.app.runtime.win-x64.9.0.0.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }
